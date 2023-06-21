@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "casestudy-91881": {
+      "hosting": {
+        "CaseStudy": [
+          "casestudy-91881"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "casestudy-91881"
+  }
+}

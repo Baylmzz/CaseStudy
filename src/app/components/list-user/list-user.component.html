@@ -1,0 +1,17 @@
+  <div class="ml-4">
+    <h2 class="text-2xl font-bold text-gray-900">Kullanıcı Listesi</h2>
+    <ul class="mt-8 overflow-auto h-96">
+      <li class="border bg-white p-4 rounded-3xl shadow-lg mt-2" *ngFor="let user of users | async">
+        <div class="flex justify-between items-center">
+          <div>
+            <h3 class="text-lg font-medium text-gray-900">{{user.name}} {{user.surname}}</h3>
+            <p class="mt-1 text-sm text-gray-700 ">{{user.email}}</p>
+          </div>
+          <div>
+            <button class="text-sm text-blue-500 ml-2" (click)="edit(user)"><i class="fa-solid fa-user-pen fa-xl" style="color: #1c92aa;"></i></button>
+            <button class="text-sm text-red-500 ml-2" (click)="delete(user.id)"><i class="fa-solid fa-user-minus fa-xl" style="color: #b95450;"></i></button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>

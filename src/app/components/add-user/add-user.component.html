@@ -1,0 +1,30 @@
+  <div class="max-w-md" [formGroup]="userForm">
+    <h2 class="text-2xl font-bold text-gray-900">Kullanıcı {{isEditing ? "Güncelle" :"Ekle"}}</h2>
+    <div class="mt-8">
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Ad
+          <span *ngIf="userForm.controls['name'].hasError('required')" class="text-red-500">Ad zorunludur</span>
+        </label>
+        <input type="text" class="mt-1 p-2 block w-full border-gray-300 rounded-2xl" formControlName="name" (keydown.enter)="submitForm()">
+      </div>
+      <div class="mt-4">
+        <label class="block text-sm font-medium text-gray-700">Soyad
+          <span *ngIf="userForm.controls['surname'].hasError('required')" class="text-red-500">Soyad zorunludur.</span>
+        </label>
+        <input type="text" class="mt-1 p-2 block w-full border-gray-300 rounded-2xl" formControlName="surname" (keydown.enter)="submitForm()">
+      </div>
+      <div class="mt-4">
+        <label class="block text-sm font-medium text-gray-700" >E-Posta
+          <span *ngIf="userForm.controls['email'].hasError('required')" class="text-red-500">E-Posta zorunludur.</span>
+          <span *ngIf="userForm.controls['email'].hasError('email')" class="text-red-500">Geçerli bir e-posta adresi giriniz.</span>
+        </label>
+        <input type="email" class="mt-1 p-2 block w-full border-gray-300 rounded-2xl" formControlName="email" (keydown.enter)="submitForm()">
+      </div>
+      <div class="mt-8">
+        <button class="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-2xl shadow-sm text-sm font-semibold text-white bg-gradient-to-l from-violet-500 via-indigo-500 to-sky-500" (click)="submitForm()">{{isEditing ? "Güncelle" :"Ekle"}} <i [ngClass]="isEditing ? 'fa-user-pen' : 'fa-user-plus'" class="fa-solid ml-2"></i></button>
+      </div>
+      <div class="mt-2">
+        <button *ngIf="isEditing" class="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-2xl shadow-sm text-sm font-semibold text-white bg-gradient-to-r from-violet-900 to-red-700" (click)="loadForm()">İptal</button>
+      </div>
+    </div>
+  </div>
